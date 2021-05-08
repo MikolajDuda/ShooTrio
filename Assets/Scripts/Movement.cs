@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -9,7 +6,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float jumpForce = 10;
     [SerializeField] private float speed = 3;
     [SerializeField] private bool isOnGround;
-  //  private Animator anim;
+    //private Animator anim;
     
     // Start is called before the first frame update
     private void Start()
@@ -17,23 +14,22 @@ public class Movement : MonoBehaviour
         if (rb == null)
         {
             rb = GetComponent<Rigidbody2D>();
-        }
-
-  //      anim = GetComponent<Animator>();
+        }   
+        //      anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     private void Update()
     {
         isOnGround = false;
-    //    anim.SetBool("isOnGround", false);
+        //anim.SetBool("isOnGround", false);
         RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.down, transform.localScale.y / 2 + 0.1f);
         foreach (RaycastHit2D hit in hits)
         {
             if (hit.transform != transform)
             {
                 isOnGround = true;
-    //            anim.SetBool("isOnGround", true);
+                //anim.SetBool("isOnGround", true);
                 break;
             }
         }
@@ -47,34 +43,31 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         float horizontal = Input.GetAxis("Horizontal");
-        if (horizontal != 0)
-        {
-     //       anim.SetBool("isRunning", true);
-        }
-        else
-        {
-    //        anim.SetBool("isRunning", false);
-        }
-        if (horizontal >= 0)
-        {
-            transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-        }
-        else
-        {
-            transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
-        }
+        Vector3 scale = transform.localScale;
         
+        // Things needed to animations:
+        //if (horizontal != 0)
+        //{
+            //anim.SetBool("isRunning", true);
+        //}
+        //else
+        //{
+            //anim.SetBool("isRunning", false);
+        //}
+        
+        // Check if scale and horizontal have the same sign
+        bool isSignTheSame = (scale.x >= 0 && horizontal >= 0 || scale.x <= 0 && horizontal <= 0);
+        transform.localScale = isSignTheSame ?  
+            new Vector3(scale.x, scale.y, scale.z) 
+            : new Vector3(-scale.x,scale.y, scale.z);
         
         Vector2 translation = Vector2.right * (horizontal * speed * Time.fixedDeltaTime);
         
-
         if (translation == Vector2.zero)
         {
             return;
         }
-        
-        //rb.AddForce(translation);
-        rb.position += translation;
 
+        rb.position += translation;
     }
 }
