@@ -7,6 +7,9 @@ public class Movement : MonoBehaviour
     [SerializeField] private float speed = 3;
     [SerializeField] private bool isOnGround;
     //private Animator anim;
+    [SerializeField] private float torque = 10f;
+    
+    public bool hitted;
     
     // Start is called before the first frame update
     private void Start()
@@ -69,5 +72,11 @@ public class Movement : MonoBehaviour
         }
 
         rb.position += translation;
+/*
+        if (hitted)
+        {
+            rb.AddTorque(torque);
+        }
+        */
     }
 }

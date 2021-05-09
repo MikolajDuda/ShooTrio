@@ -6,27 +6,27 @@ using Pathfinding;
 public class EnemyPatrol : MonoBehaviour
 {
     //private Vector3 start;
-    private AIDestinationSetter destinationSetter;
-    [SerializeField] private Transform start; 
+    private Transform start;
+    private Transform destinationSetterTarget;
     [SerializeField] private Transform end; 
     
     
     // Start is called before the first frame update
     void Start()
     {
-        //start = transform.position;
-        destinationSetter = GetComponent<AIDestinationSetter>();
+        start = transform;
+        destinationSetterTarget = GetComponent<AIDestinationSetter>().target;
      //   Rigidbody2D rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if ((transform.position.x - destinationSetter.target.position.x) <= 0.3f)
+        if ((transform.position.x - destinationSetterTarget.position.x) <= 0.05f)
         {
-            destinationSetter.target.position = destinationSetter.target.position == end.position ?  
-                start.position 
-                : end.position;
+            GetComponent<EnemyAI>().target = (destinationSetterTarget.position == end.position)
+                ? start 
+                : end;
             
             /*
              * if target == player:
