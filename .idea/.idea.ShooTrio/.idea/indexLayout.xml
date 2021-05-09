@@ -27,6 +27,7 @@
       <Path>Library</Path>
       <Path>Logs</Path>
       <Path>MADE BY US SPRITES</Path>
+      <Path>Temp</Path>
       <Path>UserSettings</Path>
       <Path>obj</Path>
     </explicitExcludes>
