@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Level Base
+    uniqueID: 1973781017
+    locked: 0
+  - name: Level Top
+    uniqueID: 3339735059
+    locked: 0
+  - name: Things to path finding
+    uniqueID: 4055997665
+    locked: 0
+  - name: Gems
+    uniqueID: 2107043607
+    locked: 0
