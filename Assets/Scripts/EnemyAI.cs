@@ -10,7 +10,8 @@ public class EnemyAI : MonoBehaviour
 
     public Transform target;
 
-    public float speed = 40f;
+    public float speed = 200f;
+    public float triggerSpeed = 200f;
     public float nextWaypointDistance = 3f;
     public float edgeToPatrol;
 
@@ -61,19 +62,28 @@ public class EnemyAI : MonoBehaviour
     {
         var position1 = _rb.position;
 
-        if (Mathf.Abs(position1.x - _endX) < 1f)
+        if (Mathf.Abs(position1.x - _endX) < 2f)
         {
+          //  StartCoroutine(waiter());
             _goalX = _startX;
+          // Invoke("changeGoal", 2);
         }
-        else if (Mathf.Abs(position1.x - _startX) < 1f)
+        else if (Mathf.Abs(position1.x - _startX) < 2f)
         {
+        //    StartCoroutine(waiter());
             _goalX = _endX;
+        //    Invoke("changeGoal", 2);
         }
         
         _seeker.StartPath(position1, new Vector3(_goalX, _floor, 0),OnPathComplete);
 
     }
 
+    private void changeGoal(float newGoal)
+    {
+        _goalX = newGoal;
+    }
+    
     private void OnPathComplete(Path p)
     {
         if (p.error) return;

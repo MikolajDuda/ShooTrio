@@ -15,9 +15,10 @@ public class AttackPlayer : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.rigidbody.velocity =
-                new Vector2(force * GetComponent<Rigidbody2D>().velocity.x + other.rigidbody.velocity.x, force * 3);
+            other.rigidbody.velocity =  
+                new Vector2(force * GetComponent<Rigidbody2D>().velocity.x + other.rigidbody.velocity.x, force * 13);
 
+            new WaitForSeconds(3);
             var transform1 = transform;
             cameraFocus.player = transform1;
             GetComponent<EnemyAI>().target = transform1;
@@ -29,7 +30,7 @@ public class AttackPlayer : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             GetComponent<EnemyAI>().target = other.transform;
-            GetComponent<EnemyAI>().speed *= 2;
+            GetComponent<EnemyAI>().speed += GetComponent<EnemyAI>().triggerSpeed;
         }
     }
 
@@ -50,7 +51,7 @@ public class AttackPlayer : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             GetComponent<EnemyAI>().target = null;
-            GetComponent<EnemyAI>().speed /= 2;
+            GetComponent<EnemyAI>().speed -= GetComponent<EnemyAI>().triggerSpeed;
         }
     }
 }
