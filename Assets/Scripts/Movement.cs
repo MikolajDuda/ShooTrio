@@ -7,7 +7,6 @@ public class Movement : MonoBehaviour
     [SerializeField] private float speed = 3;
     [SerializeField] private bool isOnGround;
     //private Animator anim;
-    [SerializeField] private float torque = 10f;
     
     public bool hitted;
     
@@ -26,7 +25,7 @@ public class Movement : MonoBehaviour
     {
         isOnGround = false;
         //anim.SetBool("isOnGround", false);
-        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.down, transform.localScale.y / 2 + 0.1f);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.down, transform.localScale.y / 2);
         foreach (RaycastHit2D hit in hits)
         {
             if (hit.transform != transform)
@@ -42,7 +41,7 @@ public class Movement : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
     }
-
+    
     private void FixedUpdate()
     {
         float horizontal = Input.GetAxis("Horizontal");

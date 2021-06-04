@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AttackPlayer : MonoBehaviour
 {
@@ -15,16 +17,31 @@ public class AttackPlayer : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.rigidbody.velocity =  
-                new Vector2(force * GetComponent<Rigidbody2D>().velocity.x + other.rigidbody.velocity.x, force * 13);
+          other.rigidbody.velocity =  
+              new Vector2(force * GetComponent<Rigidbody2D>().velocity.x + other.rigidbody.velocity.x, force * 13);
 
-            new WaitForSeconds(3);
-            var transform1 = transform;
-            cameraFocus.player = transform1;
-            GetComponent<EnemyAI>().target = transform1;
+          StartCoroutine(cameraToGoat(0.5f));
+          
+          // Finish attempt and go to the Menu
+          StartCoroutine(EndAttempt(3));
         }
     }
 
+    IEnumerator cameraToGoat(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        var transform1 = transform;
+        cameraFocus.player = transform1;
+        GetComponent<EnemyAI>().target = transform1;
+    }
+    
+    // Delay in function execution
+    IEnumerator EndAttempt(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        SceneManager.LoadScene("Menu");
+    }
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
