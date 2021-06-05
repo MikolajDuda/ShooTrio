@@ -120,14 +120,17 @@ public class EnemyAI : MonoBehaviour
             _currentWaypoint++;
         }
 
-        // Flip img
-        if (force.x >= 0.01f)
+        if (ImgTransform != null)
         {
-            ImgTransform.localScale = new Vector3(-_scale.x, _scale.y, _scale.z);
-        }
-        else if (force.x < -0.01f)
-        {
-            ImgTransform.localScale = new Vector3(_scale.x, _scale.y, _scale.z);
+            // Flip img
+            if (force.x >= 0.01f)
+            {
+                ImgTransform.localScale = new Vector3(-_scale.x, _scale.y, _scale.z);
+            }
+            else if (force.x < -0.01f)
+            {
+                ImgTransform.localScale = new Vector3(_scale.x, _scale.y, _scale.z);
+            }
         }
     }
 }

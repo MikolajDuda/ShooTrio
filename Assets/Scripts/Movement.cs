@@ -6,9 +6,9 @@ public class Movement : MonoBehaviour
     [SerializeField] private float jumpForce = 10;
     [SerializeField] private float speed = 3;
     [SerializeField] private bool isOnGround;
+
+    private bool doubleJump;
     //private Animator anim;
-    
-    public bool hitted;
     
     // Start is called before the first frame update
     private void Start()
@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour
     {
         isOnGround = false;
         //anim.SetBool("isOnGround", false);
-        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.down, transform.localScale.y / 2);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.down, transform.localScale.y / 2 - 3f);
         foreach (RaycastHit2D hit in hits)
         {
             if (hit.transform != transform)
@@ -39,6 +39,14 @@ public class Movement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isOnGround)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            doubleJump = true;
+        }
+
+        // Double jump
+        if (Input.GetButtonDown("Jump") && doubleJump && !isOnGround)
+        {
+            rb.AddForce(Vector2.up * jumpForce / 2, ForceMode2D.Impulse);
+            doubleJump = false;
         }
     }
     

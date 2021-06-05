@@ -76,9 +76,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 1.5
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -98,9 +98,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 200
-  triggerSpeed: 100
+  triggerSpeed: 150
   nextWaypointDistance: 3
   edgeToPatrol: 30
+  ImgTransform: {fileID: 7257001090108293842}
 --- !u!114 &7257001089573524742
 MonoBehaviour:
   m_ObjectHideFlags: 0

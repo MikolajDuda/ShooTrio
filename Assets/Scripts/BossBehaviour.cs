@@ -9,7 +9,6 @@ public class BossBehaviour : MonoBehaviour
 
     public void OnAttacked()
     {
-        Debug.Log("Hitted!");
         hp -= healthDrop;
         
         if (hp <= 0)
