@@ -14,6 +14,7 @@ public class EnemyAI : MonoBehaviour
     public float triggerSpeed = 200f;
     public float nextWaypointDistance = 3f;
     public float edgeToPatrol;
+    public Transform ImgTransform;
 
     private Path _path;
     private int _currentWaypoint = 0;
@@ -28,7 +29,7 @@ public class EnemyAI : MonoBehaviour
     private float _goalX;
     
     private Vector3 _scale;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +40,7 @@ public class EnemyAI : MonoBehaviour
         _startX = position.x;
         _endX = position.x + edgeToPatrol;
         _floor = position.y;
-        _scale = transform.localScale;
+        _scale = ImgTransform.localScale;
         target = null;
         
         InvokeRepeating(nameof(UpdatePath), 0f, .5f);
@@ -70,9 +71,9 @@ public class EnemyAI : MonoBehaviour
         }
         else if (Mathf.Abs(position1.x - _startX) < 2f)
         {
-        //    StartCoroutine(waiter());
+            //    StartCoroutine(waiter());
             _goalX = _endX;
-        //    Invoke("changeGoal", 2);
+            //    Invoke("changeGoal", 2);
         }
         
         _seeker.StartPath(position1, new Vector3(_goalX, _floor, 0),OnPathComplete);
@@ -122,11 +123,11 @@ public class EnemyAI : MonoBehaviour
         // Flip img
         if (force.x >= 0.01f)
         {
-            transform.localScale = new Vector3(-_scale.x, _scale.y, _scale.z);
+            ImgTransform.localScale = new Vector3(-_scale.x, _scale.y, _scale.z);
         }
-        else if (force.x <= -0.01f)
+        else if (force.x < -0.01f)
         {
-            transform.localScale = new Vector3(_scale.x, _scale.y, _scale.z);
+            ImgTransform.localScale = new Vector3(_scale.x, _scale.y, _scale.z);
         }
     }
 }
