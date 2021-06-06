@@ -21,6 +21,8 @@ public class EnemyAI : MonoBehaviour
     private int _currentWaypoint = 0;
     private bool _reachedEndOfPath = false;
     private float prevDirection = 1;
+
+    public Vector2 pathToGoal;
     
     private Seeker _seeker;
     private Rigidbody2D _rb;
@@ -87,7 +89,6 @@ public class EnemyAI : MonoBehaviour
         }
         
         _seeker.StartPath(position1, new Vector3(_goalX, _floor, 0),OnPathComplete);
-
     }
 
     private void OnPathComplete(Path p)
@@ -115,6 +116,8 @@ public class EnemyAI : MonoBehaviour
 
         Vector2 direction = (Vector2)_path.vectorPath[_currentWaypoint] - _rb.position;
         Vector2 force = direction * (speed * Time.deltaTime);
+        
+        pathToGoal = _path.vectorPath[_currentWaypoint];
 
         _rb.AddForce(force);
         
@@ -128,7 +131,7 @@ public class EnemyAI : MonoBehaviour
         if (ImgTransform != null)
         {
             // Flip img
-            if ((direction.x * speed) >= 0.1f)
+            if (force.x >= 0.1f)
             {
                 ImgTransform.localScale = new Vector3(-_scale.x, _scale.y, _scale.z);
                 //ImgTransform.gameObject.GetComponent<SpriteRenderer>().flipX = true;

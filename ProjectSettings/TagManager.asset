@@ -8,6 +8,7 @@ TagManager:
   - goatEndPatrol
   - Obstacle
   - Goat
+  - resp
   layers:
   - Default
   - TransparentFX

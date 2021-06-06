@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossBehaviour : MonoBehaviour
 {
     [SerializeField] public float hp = 100f;
-    private readonly float healthDrop = 20f;
+    private readonly float healthDrop = 10f;
 
     public void OnAttacked()
     {

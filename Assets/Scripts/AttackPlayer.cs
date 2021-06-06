@@ -9,6 +9,7 @@ public class AttackPlayer : MonoBehaviour
     private float force = 20;
     private CameraFocus cameraFocus;
     private Transform _target;
+    [SerializeField] private respBloodyGoat resp = null;
 
     private void Start()
     {
@@ -46,6 +47,12 @@ public class AttackPlayer : MonoBehaviour
         if (GetComponent<BossBehaviour>().hp <= 0)
         {
             GameObject.FindWithTag("Player").GetComponent<PlayerStatistics>().finished = true;
+            return;
+        }
+
+        if (resp != null)
+        {
+            resp.isGoatKilled = true;
         }
     }
 

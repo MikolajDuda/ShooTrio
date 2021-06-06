@@ -38,6 +38,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 281058482812032042}
     m_Modifications:
+    - target: {fileID: 5179680522409432409, guid: 283369ffb712ff543bf7ece8b5371b8e, type: 3}
+      propertyPath: ImgTransform
+      value: 
+      objectReference: {fileID: 281058481042775797}
     - target: {fileID: 5179680522409432414, guid: 283369ffb712ff543bf7ece8b5371b8e, type: 3}
       propertyPath: m_Name
       value: goat Logic
@@ -91,5 +95,10 @@ PrefabInstance:
 --- !u!4 &281058482651285797 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5179680522409432415, guid: 283369ffb712ff543bf7ece8b5371b8e, type: 3}
+  m_PrefabInstance: {fileID: 4902008553137708154}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &281058481042775797 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5179680520796717711, guid: 283369ffb712ff543bf7ece8b5371b8e, type: 3}
   m_PrefabInstance: {fileID: 4902008553137708154}
   m_PrefabAsset: {fileID: 0}

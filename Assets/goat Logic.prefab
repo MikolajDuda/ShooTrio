@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5179680522409432415}
   - component: {fileID: 5179680522409432356}
   - component: {fileID: 5179680522409432410}
-  - component: {fileID: 5179680522409432408}
   - component: {fileID: 5179680522409432409}
   - component: {fileID: 5179680522409432411}
   m_Layer: 0
@@ -85,19 +84,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5179680522409432408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5179680522409432414}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4106c38cc4bd34f4786071209f8d0a46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  end: {fileID: 0}
 --- !u!114 &5179680522409432409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +98,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 400
+  triggerSpeed: 200
   nextWaypointDistance: 3
+  edgeToPatrol: 0
+  ImgTransform: {fileID: 0}
 --- !u!114 &5179680522409432411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,8 +114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f79b68a9ee98f44a599b58be38ead5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 20
-  _cameraFocus: {fileID: 0}
 --- !u!1001 &8297462611754462318
 PrefabInstance:
   m_ObjectHideFlags: 0
