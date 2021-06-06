@@ -17,13 +17,18 @@ public class AttackPlayer : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-          other.rigidbody.velocity =  
+            // Kill Player
+            other.gameObject.GetComponent<PlayerStatistics>().alive = false;
+            
+            // Kick them out
+            other.rigidbody.velocity =  
               new Vector2(force * GetComponent<Rigidbody2D>().velocity.x + other.rigidbody.velocity.x, force * 13);
-
-          StartCoroutine(cameraToGoat(0.5f));
+            
+            // Wait a few seconds for camera focus on the murderer
+            StartCoroutine(cameraToGoat(0.5f));
           
-          // Finish attempt and go to the Menu
-          StartCoroutine(EndAttempt(3));
+            // After 3s show Menu
+            StartCoroutine(EndAttempt(3));
         }
     }
 

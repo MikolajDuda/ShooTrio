@@ -13,11 +13,12 @@ public class SpikesZone : MonoBehaviour
         
         if (other.gameObject.CompareTag("Player"))
         {
-            StartCoroutine(EndAttempt(seconds));
+            other.gameObject.GetComponent<PlayerStatistics>().alive = false;
+            StartCoroutine(EndAttempt());
         }
     }
     
-    IEnumerator EndAttempt(float seconds)
+    IEnumerator EndAttempt()
     {
         yield return new WaitForSeconds(seconds);
         SceneManager.LoadScene("Menu");

@@ -19,7 +19,7 @@ public class EnemyAI : MonoBehaviour
     private Path _path;
     private int _currentWaypoint = 0;
     private bool _reachedEndOfPath = false;
-
+    private Vector2 _previousForce = new Vector2(0,0);
     private Seeker _seeker;
     private Rigidbody2D _rb;
     

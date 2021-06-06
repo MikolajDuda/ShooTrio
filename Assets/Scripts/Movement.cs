@@ -45,7 +45,7 @@ public class Movement : MonoBehaviour
         // Double jump
         if (Input.GetButtonDown("Jump") && doubleJump && !isOnGround)
         {
-            rb.AddForce(Vector2.up * jumpForce / 2, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * jumpForce / (float) 1.8, ForceMode2D.Impulse);
             doubleJump = false;
         }
     }
