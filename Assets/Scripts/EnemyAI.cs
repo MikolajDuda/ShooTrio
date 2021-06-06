@@ -16,7 +16,9 @@ public class EnemyAI : MonoBehaviour
     public float nextWaypointDistance = 3f;
     public float edgeToPatrol;
     public Transform ImgTransform;
-
+    
+    public Animator animator;
+    
     private Path _path;
     private int _currentWaypoint = 0;
     private bool _reachedEndOfPath = false;
@@ -118,18 +120,23 @@ public class EnemyAI : MonoBehaviour
 
         _rb.AddForce(force);
         
+        
         float distance = Vector2.Distance(_rb.position, _path.vectorPath[_currentWaypoint]);
 
         if (distance < nextWaypointDistance)
         {
             _currentWaypoint++;
         }
+        
+        
+        animator.SetFloat("Speed", (direction.x * speed));
 
         if (ImgTransform != null)
         {
             // Flip img
             if ((direction.x * speed) >= 0.1f)
             {
+                
                 ImgTransform.localScale = new Vector3(-_scale.x, _scale.y, _scale.z);
                 //ImgTransform.gameObject.GetComponent<SpriteRenderer>().flipX = true;
              //  ImgTransform.gameObject.transform.Rotate(0,180,0);
