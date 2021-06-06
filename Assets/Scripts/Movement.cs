@@ -6,6 +6,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float jumpForce = 10;
     [SerializeField] private float speed = 3;
     [SerializeField] private bool isOnGround;
+    [SerializeField] private Animator animator;
 
     private bool doubleJump;
     //private Animator anim;
@@ -31,6 +32,7 @@ public class Movement : MonoBehaviour
             if (hit.transform != transform)
             {
                 isOnGround = true;
+                animator.SetBool("IsJumping", false);
                 //anim.SetBool("isOnGround", true);
                 break;
             }
@@ -40,6 +42,7 @@ public class Movement : MonoBehaviour
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             doubleJump = true;
+            animator.SetBool("IsJumping", true);
         }
 
         // Double jump
@@ -47,7 +50,10 @@ public class Movement : MonoBehaviour
         {
             rb.AddForce(Vector2.up * jumpForce / (float) 1.8, ForceMode2D.Impulse);
             doubleJump = false;
+            animator.SetBool("IsJumping", true);
         }
+        
+        
     }
     
     private void FixedUpdate()
@@ -72,6 +78,8 @@ public class Movement : MonoBehaviour
             : new Vector3(-scale.x,scale.y, scale.z);
         
         Vector2 translation = Vector2.right * (horizontal * speed * Time.fixedDeltaTime);
+        
+        animator.SetFloat("Speed", Mathf.Abs(horizontal * speed));
         
         if (translation == Vector2.zero)
         {

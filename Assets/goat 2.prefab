@@ -96,12 +96,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1b43e08ebb9657469665ea4b6f5a4e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 7257001090108293842}
   speed: 200
   triggerSpeed: 150
   nextWaypointDistance: 3
   edgeToPatrol: 30
   ImgTransform: {fileID: 7257001090108293842}
+  animator: {fileID: 5569323408965358978}
 --- !u!114 &7257001089573524742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +161,7 @@ GameObject:
   - component: {fileID: 7257001090108293844}
   - component: {fileID: 7257001090108293845}
   - component: {fileID: 8000886316559839539}
+  - component: {fileID: 5569323408965358978}
   m_Layer: 0
   m_Name: goatGFX
   m_TagString: Untagged
@@ -342,3 +344,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3281345, y: 0.21031873}
   m_EdgeRadius: 0
+--- !u!95 &5569323408965358978
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7257001090108293843}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6b2783250f409454fa5324bf43345e63, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

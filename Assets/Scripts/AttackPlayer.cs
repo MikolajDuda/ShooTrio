@@ -19,6 +19,7 @@ public class AttackPlayer : MonoBehaviour
     // Start is called before the first frame update
     private void OnCollisionEnter2D(Collision2D other)
     {
+
         if (other.gameObject.CompareTag("Player"))
         {
             // Kill Player
@@ -39,6 +40,9 @@ public class AttackPlayer : MonoBehaviour
         }
 
         if (!other.gameObject.CompareTag("Goat")) return;
+        
+        other.gameObject.SetActive(false);
+
         // Destroy goat
         Destroy(other.gameObject);
             
