@@ -26,10 +26,10 @@ private void FixedUpdate()
 
 public Transform player;
 public float cameraDistance = 150.0f;
-public float xMin;
-public float xMax;
-public float yMin;
-public float yMax;
+public float xMin = 19;
+public float xMax = 196;
+public float yMin = 6;
+public float yMax = 38;
 
 
 private void FixedUpdate()
