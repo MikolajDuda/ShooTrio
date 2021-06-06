@@ -23258,19 +23258,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 297229671913775860, guid: 49da65c868d1b1746ad4e6596a2d3150, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
       value: 21.54
       objectReference: {fileID: 0}
     - target: {fileID: 297229671913775860, guid: 49da65c868d1b1746ad4e6596a2d3150, type: 3}
       propertyPath: m_LocalPosition.y
       value: 3.6
-=======
-      value: 7.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 297229671913775860, guid: 49da65c868d1b1746ad4e6596a2d3150, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.8
->>>>>>> level2
       objectReference: {fileID: 0}
     - target: {fileID: 297229671913775860, guid: 49da65c868d1b1746ad4e6596a2d3150, type: 3}
       propertyPath: m_LocalPosition.z
@@ -24232,8 +24224,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-<<<<<<< HEAD
-=======
 --- !u!1001 &1996143123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24331,7 +24321,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d90d49ef3a04c764b8c6f51a1807aae0, type: 3}
->>>>>>> level2
 --- !u!1 &1999136245
 GameObject:
   m_ObjectHideFlags: 0
