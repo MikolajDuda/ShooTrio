@@ -36,7 +36,7 @@ public class respBloodyGoat : MonoBehaviour
         GameObject bloodyGoatGameObject = (GameObject)Instantiate(Resources.Load("Bloody Goat"), transform.position, Quaternion.identity);
         bloodyGoatGameObject.GetComponentInChildren<EnemyAI>().speed = 400;
         bloodyGoatGameObject.GetComponentInChildren<EnemyAI>().triggerSpeed = 400;
-        bloodyGoatGameObject.GetComponentInChildren<EnemyAI>().edgeToPatrol = 20;
+        bloodyGoatGameObject.GetComponentInChildren<EnemyAI>().edgeToPatrol = 10;
         foreach (Transform t in bloodyGoatGameObject.transform)
         {
             t.gameObject.tag = "Goat";
