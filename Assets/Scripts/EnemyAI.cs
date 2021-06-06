@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +20,8 @@ public class EnemyAI : MonoBehaviour
     private Path _path;
     private int _currentWaypoint = 0;
     private bool _reachedEndOfPath = false;
-    private Vector2 _previousForce = new Vector2(0,0);
+    private float prevDirection = 1;
+    
     private Seeker _seeker;
     private Rigidbody2D _rb;
     
@@ -42,7 +44,15 @@ public class EnemyAI : MonoBehaviour
         _floor = position.y;
         _scale = ImgTransform.localScale;
         target = null;
-        
+        if (edgeToPatrol > 0)
+        {
+            prevDirection = 1;
+            ImgTransform.gameObject.transform.Rotate(0,180,0);
+        }
+        else
+        {
+            prevDirection = -1;
+        }
         InvokeRepeating(nameof(UpdatePath), 0f, .5f);
     }
 
@@ -80,11 +90,6 @@ public class EnemyAI : MonoBehaviour
 
     }
 
-    private void changeGoal(float newGoal)
-    {
-        _goalX = newGoal;
-    }
-    
     private void OnPathComplete(Path p)
     {
         if (p.error) return;
@@ -123,13 +128,17 @@ public class EnemyAI : MonoBehaviour
         if (ImgTransform != null)
         {
             // Flip img
-            if (force.x >= 0.01f)
+            if ((direction.x * speed) >= 0.1f)
             {
-                ImgTransform.localScale = new Vector3(-_scale.x, _scale.y, _scale.z);
+                //ImgTransform.localScale = new Vector3(_scale.x, _scale.y, _scale.z);
+                //ImgTransform.gameObject.GetComponent<SpriteRenderer>().flipX = true;
+               ImgTransform.gameObject.transform.Rotate(0,180,0);
+                //prevDirection = (direction.x / Math.Abs(direction.x));
             }
-            else if (force.x < -0.01f)
+            else
             {
-                ImgTransform.localScale = new Vector3(_scale.x, _scale.y, _scale.z);
+             //   ImgTransform.localScale = new Vector3(-_scale.x, _scale.y, _scale.z);
+                ImgTransform.gameObject.transform.Rotate(0,180,0);
             }
         }
     }

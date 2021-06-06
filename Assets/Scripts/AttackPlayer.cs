@@ -6,12 +6,15 @@ using UnityEngine.SceneManagement;
 public class AttackPlayer : MonoBehaviour
 {
 
-    [SerializeField] private float force = 10;
-
-   [SerializeField] private CameraFocus cameraFocus;
-
+    private float force = 20;
+    private CameraFocus cameraFocus;
     private Transform _target;
-    
+
+    private void Start()
+    {
+        cameraFocus = GameObject.FindWithTag("MainCamera").GetComponent<CameraFocus>();
+    }
+
     // Start is called before the first frame update
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -19,6 +22,9 @@ public class AttackPlayer : MonoBehaviour
         {
             // Kill Player
             other.gameObject.GetComponent<PlayerStatistics>().alive = false;
+
+            // Treat Player like a spirit 
+            other.rigidbody.bodyType = RigidbodyType2D.Kinematic;
             
             // Kick them out
             other.rigidbody.velocity =  
@@ -29,6 +35,17 @@ public class AttackPlayer : MonoBehaviour
           
             // After 3s show Menu
             StartCoroutine(EndAttempt(3));
+        }
+
+        if (!other.gameObject.CompareTag("Goat")) return;
+        // Destroy goat
+        Destroy(other.gameObject);
+            
+        GetComponent<BossBehaviour>().OnAttacked();
+
+        if (GetComponent<BossBehaviour>().hp <= 0)
+        {
+            GameObject.FindWithTag("Player").GetComponent<PlayerStatistics>().finished = true;
         }
     }
 
