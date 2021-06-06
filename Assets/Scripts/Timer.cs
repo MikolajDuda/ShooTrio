@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -49,6 +50,7 @@ public class Timer : MonoBehaviour
         _stopped = true;
         TimerGUI.color = Color.green;
         TimerGUI.fontSize = (float) (TimerGUI.fontSize + 0.01);
+        StartCoroutine(ShowMenu());
     }
 
     public void Killed()
@@ -62,5 +64,11 @@ public class Timer : MonoBehaviour
     {
       //  TimerGUI.text = hours + ":" + minutes + ":" + seconds;
         TimerGUI.text =  minutes + ":" + seconds;
+    }
+    
+    IEnumerator ShowMenu()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("Menu");
     }
 }

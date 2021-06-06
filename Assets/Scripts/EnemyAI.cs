@@ -130,15 +130,15 @@ public class EnemyAI : MonoBehaviour
             // Flip img
             if ((direction.x * speed) >= 0.1f)
             {
-                //ImgTransform.localScale = new Vector3(_scale.x, _scale.y, _scale.z);
+                ImgTransform.localScale = new Vector3(-_scale.x, _scale.y, _scale.z);
                 //ImgTransform.gameObject.GetComponent<SpriteRenderer>().flipX = true;
-               ImgTransform.gameObject.transform.Rotate(0,180,0);
+             //  ImgTransform.gameObject.transform.Rotate(0,180,0);
                 //prevDirection = (direction.x / Math.Abs(direction.x));
             }
             else
             {
-             //   ImgTransform.localScale = new Vector3(-_scale.x, _scale.y, _scale.z);
-                ImgTransform.gameObject.transform.Rotate(0,180,0);
+               ImgTransform.localScale = new Vector3(_scale.x, _scale.y, _scale.z);
+              //  ImgTransform.gameObject.transform.Rotate(0,180,0);
             }
         }
     }

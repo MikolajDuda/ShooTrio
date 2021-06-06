@@ -532,7 +532,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 1.5
   m_AngularDrag: 0.05
   m_GravityScale: 3
@@ -554,10 +554,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 200
-  triggerSpeed: 100
+  speed: 1100
+  triggerSpeed: 400
   nextWaypointDistance: 3
-  edgeToPatrol: -1
+  edgeToPatrol: -22
   ImgTransform: {fileID: 7670567548223237899}
 --- !u!114 &7670567546610530527
 MonoBehaviour:
@@ -571,8 +571,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f79b68a9ee98f44a599b58be38ead5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 20
-  cameraFocus: {fileID: 0}
 --- !u!114 &2318426651765598994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,7 +584,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
-  healthDrop: 10
 --- !u!1 &7670567548223237898
 GameObject:
   m_ObjectHideFlags: 0

@@ -114,8 +114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f79b68a9ee98f44a599b58be38ead5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 20
-  cameraFocus: {fileID: 0}
 --- !u!1 &7257001089599424522
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,7 +125,7 @@ GameObject:
   - component: {fileID: 7257001089599424525}
   m_Layer: 0
   m_Name: goat 2
-  m_TagString: Untagged
+  m_TagString: Goat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
