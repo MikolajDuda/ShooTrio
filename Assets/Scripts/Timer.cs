@@ -85,7 +85,7 @@ public class Timer : MonoBehaviour
     
     IEnumerator ShowMenu()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4);
         SceneManager.LoadScene("Menu");
     }
 }

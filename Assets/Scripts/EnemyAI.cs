@@ -128,11 +128,11 @@ public class EnemyAI : MonoBehaviour
         if (ImgTransform != null)
         {
             // Flip img
-            if (force.x >= 0.01f)
+            if (direction.x >= 0.1f)
             {
                 transform.localScale = new Vector3(-_scale.x, _scale.y, _scale.z);
             }
-            else if (force.x <= -0.01f)
+            else if (direction.x <= -0.1f)
             {
                 transform.localScale = new Vector3(_scale.x, _scale.y, _scale.z);
             }

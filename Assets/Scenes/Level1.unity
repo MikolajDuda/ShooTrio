@@ -25361,8 +25361,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerGUI: {fileID: 1885687320}
   _playerStatistics: {fileID: 1275795479}
-  killedPanel: {fileID: 0}
-  winPanel: {fileID: 0}
+  killedPanel: {fileID: 9956690}
+  winPanel: {fileID: 891561287}
 --- !u!114 &1885687320
 MonoBehaviour:
   m_ObjectHideFlags: 0
