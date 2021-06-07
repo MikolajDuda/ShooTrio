@@ -9,6 +9,7 @@ public class ScenesManagement : MonoBehaviour
     public void StartFirstLevel()
     {
         SceneManager.LoadScene(1);
+       // GameObject.FindWithTag("Timer").GetComponent<Timer>().StartClock();
     }
 
     public void StartSecondLevel()

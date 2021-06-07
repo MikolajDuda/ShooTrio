@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - Goat
   - resp
+  - Timer
   layers:
   - Default
   - TransparentFX
