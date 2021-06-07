@@ -1,28 +1,21 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    private float _timer = 0.0f;
     [SerializeField] private TextMeshProUGUI TimerGUI;
     [SerializeField] private PlayerStatistics _playerStatistics;
+    private GameObject timer;
     private bool _stopped;
-    private float _startTime;
+    private static float time;
+    private static float _startTime;
     private string hours;
     private string minutes;
     private string seconds;
 
     // Update is called once per frame
-
-    private void Start()
-    {
-        _startTime = Time.time;
-    }
-
     void Update()
     {
         if (!_playerStatistics.alive)
@@ -37,14 +30,19 @@ public class Timer : MonoBehaviour
         
         if (!_stopped)
         {
-            float t = Time.time - _startTime;
+            time = Time.time - _startTime;
        //     hours = ((int) (t / 60) / 60).ToString();
-            minutes = ((int) t / 60).ToString();
-            seconds = (t % 60).ToString("f2");
+            minutes = ((int) time / 60).ToString();
+            seconds = (time % 60).ToString("f2");
             SetTimer();
         }
     }
 
+    public void StartClock()
+    {
+        _startTime = Time.time;
+    }
+    
     public void Finished()
     {
         _stopped = true;
