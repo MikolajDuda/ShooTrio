@@ -11,6 +11,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private GameObject winPanel;
     private GameObject timer;
     private bool _stopped;
+    private bool _finished;
     private static float time;
     private static float _startTime;
     private string hours;
@@ -22,7 +23,10 @@ public class Timer : MonoBehaviour
     {
         if (!_playerStatistics.alive)
         {
-            Killed();
+            if (!_finished)
+            {
+                Killed();
+            }
         }
         
         if (_playerStatistics.finished)
@@ -48,6 +52,8 @@ public class Timer : MonoBehaviour
     public void Finished()
     {
         _stopped = true;
+        _finished = true;
+        //Time.timeScale = 0f;
         TimerGUI.color = Color.green;
         TimerGUI.fontSize = (float) (TimerGUI.fontSize + 0.01);
         if (winPanel != null)
@@ -62,6 +68,7 @@ public class Timer : MonoBehaviour
     public void Killed()
     {
         _stopped = true;
+        //Time.timeScale = 0f;
         TimerGUI.color = Color.red;
         TimerGUI.fontSize = (float) (TimerGUI.fontSize + 0.01);
         if (killedPanel != null)

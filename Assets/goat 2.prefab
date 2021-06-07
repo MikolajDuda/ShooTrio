@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 7257001090108293842}
-  speed: 200
-  triggerSpeed: 150
+  speed: 300
+  triggerSpeed: 250
   nextWaypointDistance: 3
   edgeToPatrol: 30
   ImgTransform: {fileID: 7257001090108293842}

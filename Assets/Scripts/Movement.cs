@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         isOnGround = false;
-        //anim.SetBool("isOnGround", false);
+        animator.SetBool("IsJumping", true);
         RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.down, transform.localScale.y / 2 - 3f);
         foreach (RaycastHit2D hit in hits)
         {
