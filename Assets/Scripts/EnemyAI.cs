@@ -132,7 +132,7 @@ public class EnemyAI : MonoBehaviour
         }
         
         
-        animator.SetFloat("Speed", (direction.x * speed));
+        animator.SetFloat("Speed", Mathf.Abs(direction.x * speed));
 
         if (ImgTransform != null)
         {
