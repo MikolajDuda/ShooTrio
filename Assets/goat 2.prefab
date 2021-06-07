@@ -103,6 +103,7 @@ MonoBehaviour:
   edgeToPatrol: 30
   ImgTransform: {fileID: 7257001090108293842}
   animator: {fileID: 5569323408965358978}
+  pathToGoal: {x: 0, y: 0}
 --- !u!114 &7257001089573524742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f79b68a9ee98f44a599b58be38ead5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resp: {fileID: 0}
 --- !u!1 &7257001089599424522
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +141,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7257001089599424522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.35, y: 1.85, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7257001089573524738}
@@ -177,7 +179,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7257001090108293843}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.04, y: 1.19, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 12.925711, y: 12.925711, z: 12.925711}
   m_Children: []
   m_Father: {fileID: 7257001089573524738}

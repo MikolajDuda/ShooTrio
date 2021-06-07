@@ -11,7 +11,8 @@ public class LvlFinish : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             //other.gameObject.GetComponent<PlayerStatistics>().finished = true;
-            StartCoroutine(Loadlvl2());
+          //  StartCoroutine(Loadlvl2());
+          SceneManager.LoadScene("Level2");
         }
     }
 

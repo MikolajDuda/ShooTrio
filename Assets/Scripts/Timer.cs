@@ -7,6 +7,8 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI TimerGUI;
     [SerializeField] private PlayerStatistics _playerStatistics;
+    [SerializeField] private GameObject killedPanel;
+    [SerializeField] private GameObject winPanel;
     private GameObject timer;
     private bool _stopped;
     private static float time;
@@ -48,6 +50,12 @@ public class Timer : MonoBehaviour
         _stopped = true;
         TimerGUI.color = Color.green;
         TimerGUI.fontSize = (float) (TimerGUI.fontSize + 0.01);
+        if (winPanel != null)
+        {
+            winPanel.SetActive(true);
+            return;
+        }
+        
         StartCoroutine(ShowMenu());
     }
 
@@ -56,6 +64,10 @@ public class Timer : MonoBehaviour
         _stopped = true;
         TimerGUI.color = Color.red;
         TimerGUI.fontSize = (float) (TimerGUI.fontSize + 0.01);
+        if (killedPanel != null)
+        {
+            killedPanel.SetActive(true);
+        }
     }
     
     private void SetTimer()

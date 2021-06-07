@@ -46,17 +46,8 @@ public class EnemyAI : MonoBehaviour
         _startX = position.x;
         _endX = position.x + edgeToPatrol;
         _floor = position.y;
-        _scale = ImgTransform.localScale;
+        _scale = transform.localScale;
         target = null;
-        if (edgeToPatrol > 0)
-        {
-            prevDirection = 1;
-            ImgTransform.gameObject.transform.Rotate(0,180,0);
-        }
-        else
-        {
-            prevDirection = -1;
-        }
         InvokeRepeating(nameof(UpdatePath), 0f, .5f);
     }
 
@@ -137,6 +128,16 @@ public class EnemyAI : MonoBehaviour
         if (ImgTransform != null)
         {
             // Flip img
+            if (force.x >= 0.01f)
+            {
+                transform.localScale = new Vector3(-_scale.x, _scale.y, _scale.z);
+            }
+            else if (force.x <= -0.01f)
+            {
+                transform.localScale = new Vector3(_scale.x, _scale.y, _scale.z);
+            }
+            /*
+            // Flip img
             if (force.x >= 0.1f)
             {
                 
@@ -150,6 +151,7 @@ public class EnemyAI : MonoBehaviour
                ImgTransform.localScale = new Vector3(_scale.x, _scale.y, _scale.z);
               //  ImgTransform.gameObject.transform.Rotate(0,180,0);
             }
+        */
         }
     }
 }
